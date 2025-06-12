@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hamza Rana | Portfolio</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@700&display=swap" rel="stylesheet">
+  <style>
+    .hero {
+      perspective: 1000px;
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+    .hero h1 {
+      font-size: 6.5rem;
+      font-family: 'Merriweather', serif;
+      margin-bottom: 1rem;
+      display: inline-block;
+      transition: transform 0.1s ease;
+      will-change: transform;
+      transform-style: preserve-3d;
+    }
+    .hero p {
+      font-size: 1.35rem;
+      font-weight: 400;
+      margin-bottom: 2rem;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <button id="menu-toggle" class="menu-btn">☰</button>
+    <nav id="nav-menu" class="nav-links">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+      <button id="toggle-dark">🌙</button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1 id="hero-name">Hamza Rana</h1>
+    <p>Software Engineer & Math Enthusiast</p>
+    <a href="#projects" class="btn btn-rounded">View Projects</a>
+  </section>
+
+  <section id="about" class="content-section">
+    <h2>About Me</h2>
+    <p>I'm a CS and Math student passionate about AI, software engineering, and building clean tech experiences. Currently studying at UofT, with hands-on experience in web dev, ML, and system design.</p>
+    <p><strong>Technical Skills:</strong> Python, JavaScript, Java, C, Flask, React, SQL, Git, Linux, AWS, NumPy, Pandas</p>
+  </section>
+
+  <section id="projects" class="content-section" style="background-color: #f2f2f2; color: black;">
+    <h2 class="section-title">Projects</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <h3>Firefighting Robot</h3>
+        <p class="project-date">(June 2021)</p>
+        <p>A robot programmed in C++ to navigate a maze and detect fire using sensors.</p>
+        <video controls>
+          <source src="images/received_421028702639813.mp4" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+      </div>
+
+      <div class="project-card">
+        <h3>Personal Website</h3>
+        <p class="project-date">(December 2023)</p>
+        <p>A website built using JavaScript, HTML, jQuery, and CSS with smooth scrolling and media embedding.</p>
+        <a href="https://github.com/HamzaR13/Updated-Personal-Website" target="_blank">
+          <img src="images/personal website.png" alt="Personal Website Screenshot">
+        </a>
+      </div>
+
+      <div class="project-card">
+        <h3>Python Compression Model</h3>
+        <p class="project-date">(January 2022)</p>
+        <p>Text/image/video compression & decompression with Huffman coding + binary trees.</p>
+        <a href="https://github.com/HamzaR13/Python-Compression-Model" target="_blank">
+          <img src="images/compression model.png" alt="Compression Model Screenshot">
+        </a>
+      </div>
+
+      <div class="project-card">
+        <h3>Python Algorithmic Trading Bot</h3>
+        <p class="project-date">(July 2023)</p>
+        <p>Trading bot built in Python, backtested using Yahoo Finance data.</p>
+        <a href="https://github.com/HamzaR13/Python-Algorithm-Trading-Bot" target="_blank">
+          <img src="images/Trading bot.png" alt="Trading Bot Screenshot">
+        </a>
+      </div>
+
+      <div class="project-card">
+        <h3>AI-Enhanced Paint Application</h3>
+        <p class="project-date">(December 2024)</p>
+        <p>Paint app with custom shapes and Ollama LLM API for AI-assisted drawing.</p>
+        <a href="https://github.com/HamzaR13/AI-Enhanced-Paint-Application" target="_blank">
+          <img src="images/AI enhanced paint application.png" alt="Paint App Screenshot">
+        </a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="content-section">
+    <h2 style="text-align: left;">Contact</h2>
+    <div style="text-align: center;">
+      <p>Email: hamza.sr133@gmail.com</p>
+      <p>
+        <a href="https://github.com/HamzaR13">GitHub</a> |
+        <a href="https://www.linkedin.com/in/hamza-sr/">LinkedIn</a>
+      </p>
+    </div>
+  </section>
+
+  <footer>
+    <button id="back-to-top">↑</button>
+    <p>&copy; 2023 Hamza Rana</p>
+  </footer>
+
+  <script>
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    document.getElementById('menu-toggle').onclick = () => {
+      document.getElementById('nav-menu').classList.toggle('open');
+    };
+    document.getElementById('back-to-top').onclick = () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+    document.getElementById('toggle-dark').onclick = () => {
+      document.body.classList.toggle('dark');
+    };
+
+    // Tilt effect on name
+    const heroTitle = document.getElementById("hero-name");
+    document.addEventListener("mousemove", (e) => {
+      const { innerWidth, innerHeight } = window;
+      const rotateY = ((e.clientX / innerWidth) - 0.5) * 50;
+      const rotateX = ((e.clientY / innerHeight) - 0.5) * -50;
+      heroTitle.style.transform = `rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+    });
+  </script>
+</body>
+</html>
