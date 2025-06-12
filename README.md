@@ -1,2 +1,1 @@
-# HamzaPortfolioWebsite
-Hamza's Personal Website
+Hamza's Personal Website: 
